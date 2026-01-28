@@ -1,0 +1,29 @@
+[
+  {
+    "id": 1,
+    "name": "Gamer Quiz",
+    "initialPosition": { "x": 20, "y": 25 },
+    "description": "Quiz interactif pour gamers — mini-jeux et scores.",
+    "tech": ["HTML", "CSS", "JavaScript"],
+    "links": { "demo": "/projects/gamer_quiz/", "github": "https://github.com/Remynder0/gamer_quiz" },
+    "fishColor": "bg-orange-500"
+  },
+  {
+    "id": 2,
+    "name": "Night City",
+    "initialPosition": { "x": 60, "y": 40 },
+    "description": "Projet visuel / artistique inspiré de Night City.",
+    "tech": ["Three.js", "React"],
+    "links": { "demo": "/projects/night_city/", "github": "https://github.com/Remynder0/night_city" },
+    "fishColor": "bg-blue-500"
+  },
+  {
+    "id": 3,
+    "name": "Nords Stuff",
+    "initialPosition": { "x": 40, "y": 70 },
+    "description": "Collection de petits outils et expérimentations (Nords).",
+    "tech": ["JS", "Tailwind"],
+    "links": { "demo": "/projects/nords_stuff/", "github": "https://github.com/Remynder0/nords_stuff" },
+    "fishColor": "bg-purple-500"
+  }
+]
