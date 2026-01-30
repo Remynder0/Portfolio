@@ -1,5 +1,6 @@
 import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
+import { useFishBoost } from './fishEasterEgg';
 
 const Fish = ({ project, index, isMobile, onSelect }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -9,15 +10,22 @@ const Fish = ({ project, index, isMobile, onSelect }) => {
   });
   const fishSize = 70;
   const animationFrameRef = useRef();
-  const velocityX = useRef(Math.max((Math.random() - 0.5) * 0.1, 0.05));
+  const baseVelocity = useRef(Math.max((Math.random() - 0.5) * 0.1, 0.05));
+  const velocityX = useRef(baseVelocity.current);
   const [scaleX, setScaleX] = useState(velocityX.current > 0 ? -1 : 1);
 
   const initialY = useRef(project.initialPosition.y);
   const phase = useRef(Math.random() * 2 * Math.PI);
   const startTime = useRef(Date.now());
 
+  const { isBoosted, handleHover, showEffects } = useFishBoost(
+    velocityX,
+    baseVelocity,
+    project.name
+  );
+
   useEffect(() => {
-    if (isMobile || isHovered) return;
+    if (isMobile || (isHovered && !isBoosted)) return;
 
     const updatePosition = () => {
       const elapsedTime = (Date.now() - startTime.current) / 1000;
@@ -54,7 +62,16 @@ const Fish = ({ project, index, isMobile, onSelect }) => {
     return () => {
       if (animationFrameRef.current) cancelAnimationFrame(animationFrameRef.current);
     };
-  }, [isMobile, isHovered, fishSize, index]);
+  }, [isMobile, isHovered, isBoosted, fishSize, index]);
+
+  const handleHoverStart = () => {
+    setIsHovered(true);
+    handleHover();
+  };
+
+  const handleHoverEnd = () => {
+    setIsHovered(false);
+  };
 
   return (
     <motion.div
@@ -63,13 +80,15 @@ const Fish = ({ project, index, isMobile, onSelect }) => {
       initial={{ opacity: 0, scale: 0 }}
       animate={{ opacity: 1, scale: isHovered ? 1.1 : 1 }}
       transition={{ opacity: { duration: 0.5, delay: index * 0.1 }, scale: { duration: 0.3 } }}
-      onHoverStart={() => setIsHovered(true)}
-      onHoverEnd={() => setIsHovered(false)}
+      onHoverStart={handleHoverStart}
+      onHoverEnd={handleHoverEnd}
       onClick={() => onSelect(project)}
     >
       <div className={`${isMobile ? 'flex items-center gap-4 p-4 bg-white/10 rounded-lg backdrop-blur-sm mb-3' : 'flex flex-col items-center'}`}>
         <div
-          className={`${project.fishColor} rounded-full p-4 shadow-lg transition-shadow ${isHovered ? 'shadow-2xl' : ''}`}
+          className={`${project.fishColor} rounded-full p-4 shadow-lg transition-shadow ${
+            isHovered ? 'shadow-2xl' : ''
+          } ${isBoosted && showEffects ? 'ring-4 ring-yellow-400 ring-opacity-75 animate-pulse' : ''}`}
           style={{ transform: `scaleX(${scaleX})` }}
         >
           <svg width={isMobile ? '30' : '40'} height={isMobile ? '30' : '40'} viewBox="0 0 60 60" className="text-white">
@@ -77,8 +96,11 @@ const Fish = ({ project, index, isMobile, onSelect }) => {
           </svg>
         </div>
 
-        <span className={`${isMobile ? 'text-base flex-1' : 'mt-2 text-sm'} text-white font-semibold bg-black/50 px-3 py-1 rounded-full whitespace-nowrap backdrop-blur-sm`}>
+        <span className={`${isMobile ? 'text-base flex-1' : 'mt-2 text-sm'} text-white font-semibold bg-black/50 px-3 py-1 rounded-full whitespace-nowrap backdrop-blur-sm ${
+          isBoosted && showEffects ? 'bg-yellow-500/70' : ''
+        }`}>
           {project.name}
+          {isBoosted && showEffects && ' 🚀'}
         </span>
       </div>
     </motion.div>

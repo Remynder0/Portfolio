@@ -50,7 +50,7 @@
     "initialPosition": { "x": 20, "y": 70 },
     "description": "Projet d'évaluation par groupe de 4-5 en PHP. \nUne application web pour jouer à un jeu d'exploration de donjons.",
     "tech": ["TailwindCSS", "JavaScript","PHP","Composer","MySQL"],
-    "links": { "demo": "", "github": "https://github.com/Infuseting/DungeonXplorer" },
+    "links": { "demo": "https://dungeonxplorer.infuseting.fr/", "github": "https://github.com/Infuseting/DungeonXplorer" },
     "status": "Finis"
   },
   {
@@ -59,7 +59,7 @@
     "initialPosition": { "x": 50, "y": 75 },
     "description": "Projet d'évaluation par groupe de 8-9 de fin de semestre. \nCréation d'un site et d'une API pour une association de course d'orientation.",
     "tech": ["React", "TailwindCSS", "TypeScript","PHP","Laravel","MySQL"],
-    "links": { "demo": "", "github": "https://github.com/infusting/SAE301" },
+    "links": { "demo": "https://sae301.infuseting.fr/", "github": "https://github.com/infusting/SAE301" },
     "status": "Finis"
   },
   {
