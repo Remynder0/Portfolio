@@ -5,6 +5,9 @@ import { X } from 'lucide-react';
 const ProjectModal = ({ selectedProject, onClose }) => {
   if (!selectedProject) return null;
 
+  const demoLink = selectedProject.links?.demo?.trim() || '';
+  const hasDemo = demoLink !== '';
+
   return (
     <motion.div
       className="fixed inset-0 z-50 flex items-center justify-center p-4"
@@ -31,7 +34,9 @@ const ProjectModal = ({ selectedProject, onClose }) => {
         <div className="p-6">
           <div className="mb-6">
             <h3 className="text-lg font-semibold text-gray-800 mb-2">Description</h3>
-            <p className="text-gray-600 leading-relaxed">{selectedProject.description}</p>
+            <p className="text-gray-600 leading-relaxed" style={{ whiteSpace: 'pre-wrap' }}>
+              {selectedProject.description}
+            </p>
           </div>
 
           <div className="mb-6">
@@ -46,9 +51,25 @@ const ProjectModal = ({ selectedProject, onClose }) => {
           </div>
 
           <div className="flex gap-4">
-            <a href={selectedProject.links.demo} target="_blank" rel="noopener noreferrer" className="flex-1 bg-gradient-to-r from-blue-500 to-blue-600 text-white py-3 rounded-lg font-semibold text-center hover:from-blue-600 hover:to-blue-700 transition-all shadow-md hover:shadow-lg">
-              Voir la Démo
-            </a>
+            {hasDemo ? (
+              <a
+                href={demoLink}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="flex-1 bg-gradient-to-r from-blue-500 to-blue-600 text-white py-3 rounded-lg font-semibold text-center hover:from-blue-600 hover:to-blue-700 transition-all shadow-md hover:shadow-lg"
+              >
+                Voir la Démo
+              </a>
+            ) : (
+              <button
+                disabled
+                aria-disabled="true"
+                className="flex-1 bg-gray-200 text-gray-500 py-3 rounded-lg font-semibold text-center cursor-not-allowed shadow-none"
+              >
+                Voir la Démo
+              </button>
+            )}
+
             <a href={selectedProject.links.github} target="_blank" rel="noopener noreferrer" className="flex-1 bg-gradient-to-r from-gray-700 to-gray-800 text-white py-3 rounded-lg font-semibold text-center hover:from-gray-800 hover:to-gray-900 transition-all shadow-md hover:shadow-lg">
               Code Source
             </a>

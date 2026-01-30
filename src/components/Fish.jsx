@@ -9,7 +9,7 @@ const Fish = ({ project, index, isMobile, onSelect }) => {
   });
   const fishSize = 70;
   const animationFrameRef = useRef();
-  const velocityX = useRef(Math.max((Math.random() - 0.5) * 0.15, 0.1));
+  const velocityX = useRef(Math.max((Math.random() - 0.5) * 0.1, 0.05));
   const [scaleX, setScaleX] = useState(velocityX.current > 0 ? -1 : 1);
 
   const initialY = useRef(project.initialPosition.y);
