@@ -28,7 +28,22 @@ const ProjectModal = ({ selectedProject, onClose }) => {
           <button onClick={onClose} className="absolute top-4 right-4 text-white hover:bg-white/20 rounded-full p-2 transition-colors">
             <X size={24} />
           </button>
-          <h2 className="text-3xl font-bold text-white pr-12">{selectedProject.name}</h2>
+          <div className='flex items-center gap-4'>
+            <h2 className="text-3xl font-bold text-white pr-12">{selectedProject.name}</h2>
+            {selectedProject.status && (
+              <span
+                className={`inline-block px-3 py-1 text-sm font-semibold text-white rounded-full ${
+                  selectedProject.status === 'Finis'
+                    ? 'bg-green-500'
+                    : selectedProject.status === 'En cours'
+                    ? 'bg-blue-500'
+                    : 'bg-yellow-500'
+                }`}
+              >
+                {selectedProject.status}
+              </span>
+            )}
+          </div>
         </div>
 
         <div className="p-6">

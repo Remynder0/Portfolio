@@ -5,7 +5,8 @@
     "initialPosition": { "x": 30, "y": 20 },
     "description": "Projet de fin de cours sur les technologies web. \nUtilisations de HTML et CSS pour créer un site web statique sur le thème de l'expédition polaire.",
     "tech": ["HTML", "CSS"],
-    "links": { "demo": "https://remynder0.github.io/nords_stuff/accueil.html", "github": "https://github.com/Remynder0/nords_stuff" }
+    "links": { "demo": "https://remynder0.github.io/nords_stuff/accueil.html", "github": "https://github.com/Remynder0/nords_stuff" },
+    "status": "Finis"
   },
   {
     "id": 2,
@@ -13,15 +14,17 @@
     "initialPosition": { "x": 50, "y": 35 },
     "description": "Projet de fin de cours sur les technologies web. \nUtilisations de HTML et CSS pour créer un site web statique sur la ville de notre choix.",
     "tech": ["HTML", "CSS"],
-    "links": { "demo": "https://remynder0.github.io/night_city/accueil.html", "github": "https://github.com/Remynder0/night_city" }
+    "links": { "demo": "https://remynder0.github.io/night_city/accueil.html", "github": "https://github.com/Remynder0/night_city" },
+    "status": "Finis"
   },
   {
     "id": 3,
     "name": "The Board",
     "initialPosition": { "x": 70, "y": 25 },
-    "description": "Projet d'évaluation par groupe de 2 en C. \n Le jeu consiste à capturer le roi ennemi au milieu de cellules mortes.",
+    "description": "Projet d'évaluation par groupe de 2 en C. \nLe jeu consiste à capturer le roi ennemi au milieu de cellules mortes.",
     "tech": ["C"],
-    "links": { "demo": "", "github": "https://github.com/Remynder0/SAE_1.01-1.02" }
+    "links": { "demo": "", "github": "https://github.com/Remynder0/SAE_1.01-1.02" },
+    "status": "Finis"
   },
   {
     "id": 4,
@@ -29,7 +32,8 @@
     "initialPosition": { "x": 15, "y": 10 },
     "description": "Projet d'évaluation individuel en Java. \nCréation d'une application de dessin basique avec JavaFX.",
     "tech": ["Javafx","Java"],
-    "links": { "demo": "", "github": "https://github.com/Remynder0/Gribouille" }
+    "links": { "demo": "", "github": "https://github.com/Remynder0/Gribouille" },
+    "status": "En pause"
   },
   {
     "id": 5,
@@ -37,7 +41,8 @@
     "initialPosition": { "x": 85, "y": 45 },
     "description": "Projet d'évaluation par groupe de 2 en javascript et utilisation d'api javascript. \nCréation d'une application web qui permet de rechercher des animes via une api publique.",
     "tech": ["HTML", "TailwindCSS", "JavaScript"],
-    "links": { "demo": "https://remynder0.github.io/AnimeRequester", "github": "https://github.com/Remynder0/AnimeRequester" }
+    "links": { "demo": "https://remynder0.github.io/AnimeRequester", "github": "https://github.com/Remynder0/AnimeRequester" },
+    "status": "En pause"
   },
   {
     "id": 6,
@@ -45,7 +50,8 @@
     "initialPosition": { "x": 20, "y": 70 },
     "description": "Projet d'évaluation par groupe de 4-5 en PHP. \nUne application web pour jouer à un jeu d'exploration de donjons.",
     "tech": ["TailwindCSS", "JavaScript","PHP","Composer","MySQL"],
-    "links": { "demo": "", "github": "https://github.com/Infuseting/DungeonXplorer" }
+    "links": { "demo": "", "github": "https://github.com/Infuseting/DungeonXplorer" },
+    "status": "Finis"
   },
   {
     "id": 7,
@@ -53,7 +59,8 @@
     "initialPosition": { "x": 50, "y": 75 },
     "description": "Projet d'évaluation par groupe de 8-9 de fin de semestre. \nCréation d'un site et d'une API pour une association de course d'orientation.",
     "tech": ["React", "TailwindCSS", "TypeScript","PHP","Laravel","MySQL"],
-    "links": { "demo": "", "github": "https://github.com/infusting/SAE301" }
+    "links": { "demo": "", "github": "https://github.com/infusting/SAE301" },
+    "status": "Finis"
   },
   {
     "id": 8,
@@ -61,6 +68,7 @@
     "initialPosition": { "x": 80, "y": 70 },
     "description": "Projet personnel de développement web. \nCréation d'une application web tierce pour League of Legends.",
     "tech": ["TailwindCSS", "JavaScript","node.js", "riot-api"],
-    "links": { "demo": "", "github": "https://github.com/Remynder0/HextechCore" }
+    "links": { "demo": "", "github": "https://github.com/Remynder0/HextechCore" },
+    "status": "En cours"
   }
 ]
