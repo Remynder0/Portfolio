@@ -1,9 +1,5 @@
-// ========================================
-// 🎮 EASTER EGG - BOOST DE VITESSE
-// ========================================
-// Pour activer/désactiver, changez la ligne ci-dessous :
 
-export const EASTER_EGG_ENABLED = true; // ← Mettez false pour désactiver
+export const EASTER_EGG_ENABLED = true;
 
 // ========================================
 
@@ -11,12 +7,11 @@ import { useState, useRef, useEffect } from 'react';
 
 // Configuration
 const CONFIG = {
-  hoverThreshold: 5,        // Nombre de survols rapides requis
-  hoverTimeWindow: 2000,    // Fenêtre de temps (ms)
-  boostDuration: 3000,      // Durée du boost (ms)
-  boostMultiplier: 4,       // Multiplicateur de vitesse
-  showVisualEffects: true,  // Anneau jaune + émoji
-  showConsoleLog: false     // Message dans la console
+  hoverThreshold: 5,        
+  hoverTimeWindow: 2000,    
+  boostDuration: 3000,      
+  boostMultiplier: 4,       
+  showVisualEffects: true  
 };
 
 /**
@@ -30,10 +25,7 @@ export const useFishBoost = (velocityX, baseVelocity, projectName) => {
 
   const activateBoost = () => {
     if (!EASTER_EGG_ENABLED) return;
-
-    if (CONFIG.showConsoleLog) {
-      console.log(`🚀 Boost activé pour ${projectName}!`);
-    }
+    
 
     setIsBoosted(true);
     
