@@ -3,10 +3,90 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Portfolio Aquarium</title>
+    <title>Portfolio - Leber Rémy</title>
+    <style>
+      #initial-loader {
+        position: fixed;
+        inset: 0;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: linear-gradient(135deg, #042a40 0%, #0a4d68 100%);
+        z-index: 9999;
+      }
+      #initial-loader .content {
+        text-align: center;
+        padding: 0 2rem;
+      }
+      #initial-loader h2 {
+        font-size: 2rem;
+        font-weight: bold;
+        color: white;
+        margin-bottom: 3rem;
+        font-family: system-ui, -apple-system, sans-serif;
+      }
+      #initial-loader .bar-container {
+        position: relative;
+        height: 3rem;
+        background: rgba(255, 255, 255, 0.1);
+        border-radius: 9999px;
+        max-width: 28rem;
+        margin: 0 auto;
+        display: flex;
+        align-items: center;
+        padding: 0 0.5rem;
+        backdrop-filter: blur(4px);
+      }
+      #initial-loader .fish {
+        position: absolute;
+        font-size: 2rem;
+        left: 2%;
+        transform: translateX(-50%) scaleX(-1);
+        animation: swim 3s ease-in-out forwards;
+        z-index: 10;
+        will-change: left;
+      }
+      #initial-loader .progress {
+        position: absolute;
+        top: 0;
+        left: 0;
+        height: 100%;
+        background: rgba(6, 182, 212, 0.3);
+        border-radius: 9999px;
+        animation: fill 3s ease-in-out forwards;
+        will-change: width;
+      }
+      @keyframes swim {
+        from { left: 2%; }
+        to { left: 98%; }
+      }
+      @keyframes fill {
+        from { width: 0%; }
+        to { width: 100%; }
+      }
+      /* Transition de sortie */
+      #initial-loader.fade-out {
+        animation: fadeOut 0.3s ease-out forwards;
+      }
+      @keyframes fadeOut {
+        from { opacity: 1; }
+        to { opacity: 0; }
+      }
+    </style>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Écran de chargement initial (remplacé par React) -->
+      <div id="initial-loader">
+        <div class="content">
+          <h2>Rémy Leber</h2>
+          <div class="bar-container">
+            <div class="progress"></div>
+            <div class="fish">🐟</div>
+          </div>
+        </div>
+      </div>
+    </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
