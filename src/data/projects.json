@@ -67,7 +67,7 @@
     "tech": ["React", "TailwindCSS", "TypeScript","PHP","Laravel","MySQL"],
     "links": { "demo": "https://sae301.infuseting.fr/", "github": "https://github.com/infusting/SAE301" },
     "status": "Finis",
-    "fishImage": ""
+    "fishImage": "Corydoras_poivre.png"
   },
   {
     "id": 8,
@@ -77,6 +77,6 @@
     "tech": ["TailwindCSS", "JavaScript","node.js", "riot-api"],
     "links": { "demo": "", "github": "https://github.com/Remynder0/HextechCore" },
     "status": "En cours",
-    "fishImage": ""
+    "fishImage": "Corydoras_poivre_2.png"
   }
 ]

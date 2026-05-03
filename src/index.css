@@ -15,3 +15,23 @@ body {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
+/* Scrollbar personalisée pour l'aquarium */
+::-webkit-scrollbar {
+  height: 12px;
+}
+
+::-webkit-scrollbar-track {
+  background: rgba(0, 20, 40, 0.3);
+  border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(100, 200, 255, 0.4);
+  border-radius: 10px;
+  border: 2px solid rgba(0, 20, 40, 0.3);
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(100, 200, 255, 0.6);
+}
