@@ -2,7 +2,7 @@ import React, { useState, useEffect, useRef } from 'react';
 import { motion } from 'framer-motion';
 import { useFishBoost } from './fishEasterEgg';
 
-const Fish = React.memo(({ project, index, isMobile, onSelect }) => {
+const Fish = React.memo(({ project, index, isMobile, onSelect, boundsWidth, boundsHeight }) => {
   const [isHovered, setIsHovered] = useState(false);
   const [fishImageSrc, setFishImageSrc] = useState(null);
   const [useImage, setUseImage] = useState(false);
@@ -22,7 +22,10 @@ const Fish = React.memo(({ project, index, isMobile, onSelect }) => {
   const phase = useRef(Math.random() * 2 * Math.PI);
   const startTime = useRef(Date.now());
   
-  const screenDimensionsRef = useRef({ width: window.innerWidth, height: window.innerHeight });
+  const boundsRef = useRef({
+    width: boundsWidth || window.innerWidth,
+    height: boundsHeight || window.innerHeight
+  });
 
   const { isBoosted, handleHover, showEffects } = useFishBoost(
     velocityX,
@@ -47,12 +50,11 @@ const Fish = React.memo(({ project, index, isMobile, onSelect }) => {
   }, [project.fishImage]);
 
   useEffect(() => {
-    const updateDimensions = () => {
-      screenDimensionsRef.current = { width: window.innerWidth, height: window.innerHeight };
+    boundsRef.current = {
+      width: boundsWidth || window.innerWidth,
+      height: boundsHeight || window.innerHeight
     };
-    window.addEventListener('resize', updateDimensions);
-    return () => window.removeEventListener('resize', updateDimensions);
-  }, []);
+  }, [boundsWidth, boundsHeight]);
 
   useEffect(() => {
     if (isMobile || (isHovered && !isBoosted) || !fishRef.current) return;
@@ -61,7 +63,7 @@ const Fish = React.memo(({ project, index, isMobile, onSelect }) => {
       const elapsedTime = (Date.now() - startTime.current) / 1000;
 
       let newX = positionRef.current.x + velocityX.current;
-      const { width: screenWidth, height: screenHeight } = screenDimensionsRef.current;
+      const { width: screenWidth, height: screenHeight } = boundsRef.current;
       const fishWidthPercent = fishSize / screenWidth * 100;
 
       if (newX <= 0 || newX >= 100 - fishWidthPercent) {
@@ -84,11 +86,6 @@ const Fish = React.memo(({ project, index, isMobile, onSelect }) => {
       newY = Math.max(0, Math.min(newY, 100 - fishHeightPercent));
 
       positionRef.current = { x: newX, y: newY };
-
-      if (fishRef.current) {
-        fishRef.current.style.left = `${newX}%`;
-        fishRef.current.style.top = `${newY}%`;
-      }
 
       if (fishRef.current) {
         fishRef.current.style.left = `${newX}%`;
